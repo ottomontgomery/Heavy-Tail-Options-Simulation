@@ -35,37 +35,66 @@ Running the Simulations
 
 All runnable scripts are in src/.
 
-1. Generate Gaussian and Student–t implied volatility curves
+1. Compare distributions (GBM vs. Student–t)
 
-python src/analysis/generate_iv_curves.py
+python src/monte_carlo/compare_distributions.py
 
 This script:
-	•	Simulates terminal prices under GBM and Student–t GBM
+	•	Simulates terminal prices under GBM (normal) and Student–t GBM
+	•	Prices European calls via Monte Carlo for both distributions
+	•	Computes implied volatilities across a range of moneyness values
+	•	Plots IV curves comparing normal distribution with multiple Student–t distributions (varying degrees of freedom)
+	•	Produces the main comparison figure used in the paper
+
+⸻
+
+2. Simulate GBM (Geometric Brownian Motion)
+
+python src/monte_carlo/simulate_gbm.py
+
+This script:
+	•	Simulates stock price paths using standard GBM with normal innovations
 	•	Prices European calls via Monte Carlo
-	•	Computes implied volatilities
-	•	Produces the figures used in the paper
-
-Output figures appear in figures/.
+	•	Computes implied volatilities across moneyness values
+	•	Plots the IV curve for the normal distribution case
 
 ⸻
 
-2. Compare distributions (GBM vs. Student–t)
+3. Simulate Student–t GBM
 
-python src/analysis/compare_distributions.py
-
-Generates histograms/KDE plots showing tail thickness for each distribution.
-
-⸻
-
-3. Reproduce the AAPL implied volatility smile
-
-python src/analysis/real_market_iv.py
+python src/monte_carlo/simulate_student_t.py
 
 This script:
-	•	Pulls AAPL option-chain data
-	•	Computes midprices
-	•	Numerically inverts Black–Scholes to obtain IVs
-	•	Outputs the real-market volatility smile
+	•	Simulates stock price paths using GBM with Student–t innovations
+	•	Tests multiple degrees of freedom (ν) values
+	•	Prices European calls via Monte Carlo
+	•	Computes implied volatilities across moneyness values
+	•	Plots IV curves for different Student–t distributions
+
+⸻
+
+4. Generate theoretical implied volatility curve
+
+python src/analysis/theoretical_iv.py
+
+This script:
+	•	Generates theoretical Black–Scholes call prices using a constant volatility
+	•	Computes implied volatilities from these prices
+	•	Plots the theoretical IV curve (should be flat at the true volatility)
+	•	Demonstrates the baseline case with no volatility smile
+
+⸻
+
+5. Reproduce the AAPL implied volatility smile
+
+python src/analysis/aapl_iv.py
+
+This script:
+	•	Pulls AAPL option-chain data from Yahoo Finance
+	•	Selects options with 40-50 days to expiry, aiming for 45 days from expiry.
+	•	Computes midprices from bid/ask spreads
+	•	Numerically inverts Black–Scholes to obtain implied volatilities
+	•	Plots the real-market volatility smile against moneyness
 
 ⸻
 
@@ -96,10 +125,4 @@ Reproducibility
 
 Simulations use NumPy’s Generator with fixed seeds for repeatability.
 Seeds can be changed directly inside the scripts.
-
-⸻
-
-License
-
-(Optional: insert MIT License or CC-BY here.)
 

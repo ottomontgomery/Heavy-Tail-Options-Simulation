@@ -30,7 +30,7 @@ def implied_vol_call(price, S, K, T, r):
 # Find expiry date closest to target maturity (30-90 days)
 target_days_min = 40
 target_days_max = 50
-target_days_optimal = 49  # Aim for ~60 days
+target_days_optimal = 45  # Aim for ~60 days
 
 best_expiry = None
 best_days_diff = float('inf')
