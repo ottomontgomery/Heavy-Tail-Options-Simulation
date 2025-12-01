@@ -98,26 +98,11 @@ This script:
 
 ⸻
 
-Notebooks
-
-Exploratory notebooks are stored in:
-
-notebooks/
-
-These document intermediate steps and experiments but are not required for reproducing the core results.
-
-⸻
-
 Figures
 
 Final, paper-ready figures:
 
 paper/figures/
-
-Supplemental and testing plots:
-
-figures/
-
 
 ⸻
 
