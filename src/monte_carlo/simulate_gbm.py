@@ -46,7 +46,7 @@ S_paths = np.column_stack([np.full(n_paths, S0), np.exp(log_S)])
 S_T = np.exp(log_S[:, -1])
 
 # Sweep over moneyness values
-moneyness_grid = np.linspace(0.90, 1.30, 50)
+moneyness_grid = np.linspace(0.80, 1.30, 50)
 K_grid = moneyness_grid * S0
 
 call_prices_std = []
@@ -78,7 +78,7 @@ ax.axvline(x=1, color='gray', linestyle='--', alpha=0.5, label='ATM (Moneyness =
 ax.axhline(y=sigma, color='r', linestyle='--', alpha=0.5, label=f'True Volatility (σ={sigma:.1%})')
 ax.set_xlabel('Moneyness (K/S)', fontsize=12)
 ax.set_ylabel('Implied Volatility', fontsize=12)
-ax.set_xlim(0.9, 1.3)
+ax.set_xlim(0.80, 1.3)
 ax.set_ylim(0.18, 0.3)
 ax.set_title(f'Implied Volatility vs Moneyness\nMonte Carlo Simulation (σ={sigma:.1%}, {n_paths:,} paths)', fontsize=14)
 ax.grid(True, alpha=0.3)

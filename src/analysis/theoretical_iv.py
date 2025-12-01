@@ -75,7 +75,7 @@ ax.plot(moneyness, ivs, 'o-', linewidth=2, markersize=4, label=f'{int(T*365)} da
 ax.axvline(x=1, color='gray', linestyle='--', alpha=0.5, label='ATM (Moneyness = 1)')
 ax.set_xlabel('Moneyness (K/S)', fontsize=12)
 ax.set_ylabel('Implied Volatility', fontsize=12)
-ax.set_xlim(x_min, x_max)
+ax.set_xlim(0.80, 1.3)
 ax.set_ylim(0.18, 0.3)
 ax.set_title(f'Simulated Implied Volatility vs Moneyness\n(Flat σ = {true_volatility:.1%})', fontsize=14)
 ax.grid(True, alpha=0.3)

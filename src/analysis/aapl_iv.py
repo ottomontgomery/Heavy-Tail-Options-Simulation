@@ -90,7 +90,7 @@ ax.plot(valid_calls['moneyness'], valid_calls['iv'], 'o-', linewidth=2, markersi
 ax.axvline(x=1, color='gray', linestyle='--', alpha=0.5, label='ATM (Moneyness = 1)')
 ax.set_xlabel('Moneyness (K/S)', fontsize=12)
 ax.set_ylabel('Implied Volatility', fontsize=12)
-ax.set_xlim(x_min, x_max)
+ax.set_xlim(0.80, 1.3)
 ax.set_ylim(0.18, 0.3)
 ax.set_title(f'Implied Volatility vs Moneyness - {ticker}\nExpiry: ({days_to_exp} days)', fontsize=14)
 ax.grid(True, alpha=0.3)
