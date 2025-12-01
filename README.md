@@ -11,45 +11,6 @@ Available at: `paper/heavy_tail_paper.pdf`
 
 ---
 
-## Repository Structure
-
-heavy-tail-options/
-│
-├── paper/                     # Paper + final figures
-│   ├── heavy_tail_paper.tex
-│   ├── heavy_tail_paper.pdf
-│   └── figures/
-│       ├── AAPL_IV.png
-│       ├── Theoretical_BS_IV.png
-│       ├── NormalDist.png
-│       ├── StudentT.png
-│       └── Compared.png
-│
-├── src/                       # Reproducible code modules
-│   ├── monte_carlo/
-│   │   ├── simulate_gbm.py
-│   │   ├── simulate_student_t.py
-│   │   ├── pricing.py
-│   │   └── implied_vol.py
-│   │
-│   └── analysis/
-│       ├── generate_iv_curves.py
-│       ├── compare_distributions.py
-│       └── real_market_iv.py
-│
-├── notebooks/                 # Exploratory, non-final work
-│   ├── exploration.ipynb
-│   └── student_t_tests.ipynb
-│
-├── figures/                   # Supplemental/diagnostic plots
-│   ├── ITM_tests/
-│   └── OTM_tests/
-│
-├── environment.yml
-└── README.md
-
----
-
 ## Installation
 
 Clone the repository:
